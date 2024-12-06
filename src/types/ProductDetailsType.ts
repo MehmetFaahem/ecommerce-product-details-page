@@ -75,3 +75,41 @@ export interface ActionButtonProps {
   text: string;
   onClick?: () => void;
 }
+
+export interface TabProps {
+  label: string;
+  isActive?: boolean;
+}
+
+export interface ImageProps {
+  src: string;
+  alt: string;
+}
+
+export interface InstructionProps {
+  text: string;
+}
+
+export interface ProductCardProps {
+  image: string;
+  badge?: {
+    text: string;
+    color: string;
+  };
+  price: {
+    current: number;
+    original: number;
+    discount?: number;
+  };
+  title: string;
+  reviews: {
+    count: number;
+    rating: number;
+  };
+  soldCount: number;
+}
+
+export interface ProductSectionProps {
+  title: string;
+  products: ProductCardProps[];
+}

@@ -1,7 +1,6 @@
 import { Header } from "./layout/Header";
 import { ProductDetails } from "./components/product";
 import { ProductDetails as IProductDetails } from "./types/ProductDetailsType";
-
 const product: IProductDetails = {
   id: "1",
   name: "Stylish Winter Jacket",
@@ -53,10 +52,10 @@ const product: IProductDetails = {
     totalSold: 1500,
   },
   sizes: [
-    { value: "S", label: "Small", available: true, selected: false },
-    { value: "M", label: "Medium", available: true, selected: false },
-    { value: "L", label: "Large", available: true, selected: true },
-    { value: "XL", label: "Extra Large", available: false, selected: false },
+    { value: "S", label: "22", available: true, selected: false },
+    { value: "M", label: "24", available: true, selected: false },
+    { value: "L", label: "26", available: true, selected: true },
+    { value: "XL", label: "28", available: false, selected: false },
   ],
   colors: [
     { value: "black", label: "Black", hex: "#000000", selected: true },

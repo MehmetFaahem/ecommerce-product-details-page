@@ -66,23 +66,37 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
             >
               Quantity
             </label>
-            <input
-              type="number"
-              id="quantity"
-              value={quantity}
-              onChange={(e) => onQuantityChange(parseInt(e.target.value, 10))}
-              min="1"
-              max={product.stock.quantity}
-              className="w-28 px-3 py-2 border border-neutral-200 rounded"
-            />
+            <div className="flex gap-2 items-center justify-center border border-neutral-200 rounded px-2">
+              <img
+                src="/src/assets/minus.png"
+                alt=""
+                className="size-4 cursor-pointer"
+                onClick={() => onQuantityChange(quantity - 1)}
+              />
+              <input
+                type="number"
+                id="quantity"
+                value={quantity}
+                onChange={(e) => onQuantityChange(parseInt(e.target.value, 10))}
+                min="1"
+                max={product.stock.quantity}
+                className="w-20 px-3 py-2 border-neutral-200 rounded text-center focus:outline-none"
+              />
+              <img
+                src="/src/assets/plus.png"
+                alt=""
+                className="size-4 cursor-pointer"
+                onClick={() => onQuantityChange(quantity + 1)}
+              />
+            </div>
           </div>
 
           <button
-            className="w-full px-16 py-3 mt-4 text-center bg-lime-300 rounded font-medium flex items-center justify-center gap-1.5"
+            className="w-full px-16 py-3 mt-4 text-center cursor-pointer bg-lime-300 rounded font-medium flex items-center justify-center gap-1.5"
             disabled={!selectedSize || !selectedColor}
           >
             <img
-              src="/icons/buy-now.svg"
+              src="/src/assets/cart-two.png"
               alt=""
               className="w-[18px] h-[18px]"
             />
@@ -90,27 +104,40 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
           </button>
 
           <button
-            className="w-full px-16 py-3 mt-2 text-center text-white bg-stone-950 rounded font-medium flex items-center justify-center gap-1.5"
+            className="w-full px-16 py-3 mt-2 text-center cursor-pointer text-white bg-stone-950 rounded font-medium flex items-center justify-center gap-1.5"
             disabled={!selectedSize || !selectedColor}
           >
-            <img src="/icons/cart.svg" alt="" className="w-[18px] h-[18px]" />
+            <img
+              src="/src/assets/cart.png"
+              alt=""
+              className="w-[18px] h-[18px]"
+            />
             Add to Cart
           </button>
 
           <div className="flex gap-1.5 justify-center items-center mt-4 text-sm text-neutral-500">
-            <img src="/icons/secure.svg" alt="" className="w-[18px] h-[18px]" />
+            <img
+              src="/src/assets/lock.png"
+              alt=""
+              className="w-[15px] h-[20px]"
+            />
             Secured Payment Guaranteed
           </div>
 
           <div className="flex gap-2 justify-center mt-4">
-            {product.paymentMethods.map((method) => (
+            {/* {product.paymentMethods.map((method) => (
               <img
                 key={method.id}
                 src={method.icon}
                 alt={method.provider}
                 className="h-6 object-contain"
               />
-            ))}
+            ))} */}
+            <img
+              src="/src/assets/payment-methods.png"
+              alt=""
+              className="h-6 object-contain"
+            />
           </div>
         </div>
       </div>

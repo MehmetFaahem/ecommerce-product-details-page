@@ -106,6 +106,9 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
               {size.label}
             </button>
           ))}
+          <span className="text-sm font-medium text-neutral-700  cursor-pointer">
+            <p className="underline">Size Guide</p>
+          </span>
         </div>
       </div>
 

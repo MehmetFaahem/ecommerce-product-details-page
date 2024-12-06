@@ -1,6 +1,7 @@
 import { Header } from "./layout/Header";
 import { ProductDetails } from "./components/product";
 import { ProductDetails as IProductDetails } from "./types/ProductDetailsType";
+import { Footer } from "./components/footer/Footer";
 const product: IProductDetails = {
   id: "1",
   name: "Stylish Winter Jacket",
@@ -134,6 +135,7 @@ function App() {
         currentCurrency="USD"
       />
       <ProductDetails product={product} />
+      <Footer />
     </>
   );
 }

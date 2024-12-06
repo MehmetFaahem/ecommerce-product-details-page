@@ -79,6 +79,7 @@ export interface ActionButtonProps {
 export interface TabProps {
   label: string;
   isActive?: boolean;
+  onClick?: () => void;
 }
 
 export interface ImageProps {
@@ -112,4 +113,31 @@ export interface ProductCardProps {
 export interface ProductSectionProps {
   title: string;
   products: ProductCardProps[];
+}
+
+export interface Description {
+  outstandingFeatures: string[];
+  washingInstructions: string[];
+  images: ImageProps[];
+}
+
+export interface Review {
+  rating: number;
+  text: string;
+}
+
+export interface ShippingInfo {
+  estimatedDelivery: string;
+  returnPolicy: string;
+}
+
+export interface ProductTabContent {
+  description: Description[];
+  specifications: string[];
+  reviews: Review[];
+  shipping: ShippingInfo[];
+}
+
+export interface Specification {
+  text: string;
 }

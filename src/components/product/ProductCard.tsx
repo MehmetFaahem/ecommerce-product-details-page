@@ -31,7 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           </div>
           <div className="flex items-center w-full text-sm leading-snug text-center">
-            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white border-t border-b border-l border-neutral-200 min-h-[44px] w-[156px]">
+            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white border-t border-b border-l border-neutral-200 min-h-[44px] w-[50%]">
               <div className="flex gap-1.5 items-center">
                 <img
                   loading="lazy"
@@ -42,7 +42,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 <span className="self-stretch my-auto">Buy Now</span>
               </div>
             </button>
-            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white border border-solid border-neutral-200 min-h-[44px] w-[156px]">
+            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white border border-solid border-neutral-200 min-h-[44px] w-[50%]">
               <div className="flex gap-1.5 items-center">
                 <img
                   loading="lazy"
@@ -59,14 +59,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="flex gap-10 justify-between items-center w-full">
             <div className="flex gap-1.5 items-center self-stretch my-auto">
               <div className="flex gap-1 items-center self-stretch my-auto">
-                {[...Array(5)].map((_, i) => (
-                  <img
-                    key={i}
-                    loading="lazy"
-                    src={`http://b.io/ext_${i + 5}-`}
-                    alt=""
-                    className="object-contain shrink-0 self-stretch my-auto w-3 aspect-square"
-                  />
+                {[...Array(5)].map((_, index) => (
+                  <span
+                    key={index}
+                    className={`text-lg ${
+                      index < reviews.rating
+                        ? "text-yellow-400"
+                        : "text-gray-300"
+                    }`}
+                  >
+                    ★
+                  </span>
                 ))}
               </div>
               <div className="self-stretch my-auto text-xs leading-snug text-right text-neutral-700">

@@ -25,7 +25,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
 
   return (
     <>
-      <div className="flex overflow-hidden flex-wrap gap-6 items-start justify-start mt-10 max-w-[1350px] mx-auto">
+      <div className="flex overflow-hidden flex-wrap gap-6 items-start justify-start mt-10 max-w-[1350px] mx-auto max-md:flex-col max-md:px-5 max-md:items-center max-md:justify-center">
         <ProductGallery
           images={product.images}
           selectedImage={selectedImage}

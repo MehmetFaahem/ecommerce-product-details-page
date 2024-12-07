@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+# E-Commerce Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, feature-rich e-commerce product page built with React, TypeScript, and Tailwind CSS. This project demonstrates professional-grade implementation of a product page with advanced features such as image galleries, dynamic pricing, and responsive design.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend Framework:** React 18
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **HTTP Client:** Axios
+- **Linting:** ESLint
+- **Package Manager:** npm / yarn
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To set up and run this project, you’ll need the following:
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js (v14 or higher)
+- npm or yarn
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/MehmetFaahem/ecommerce-product-details-page.git
+cd eecommerce-product-details-page
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2. Configure Base URL
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+const API_BASE_URL = "https://ecommerce-product-api-laravel-production.up.railway.app/api";
+
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+## Features
+
+- Product image gallery with thumbnails and zoom functionality.
+- Dynamic pricing with discount calculations.
+- Color and size selection with availability status.
+- Quantity selector with stock validation.
+- Real-time sale countdown timer.
+- Fully responsive design.
+- Multi-language support.
+- Multi-currency support.
+- Advanced search functionality.
+- Related products section.
+- Recently viewed products.
+- Newsletter signup.
+- Social media integration.
+- Loading and error states.

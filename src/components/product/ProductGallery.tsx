@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { ProductImage } from "../../types/ProductDetailsType";
+import { Controlled as ControlledZoom } from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 interface ProductGalleryProps {
   images: ProductImage[];
@@ -18,6 +20,12 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
 
   const nextImage = images[images.indexOf(mainImage) + 1];
   const previousImage = images[images.indexOf(mainImage) - 1];
+
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const handleZoomChange = useCallback((shouldZoom: boolean) => {
+    setIsZoomed(shouldZoom);
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row gap-4 md:gap-2.5 w-full md:w-[536px] min-w-[240px]">
@@ -43,7 +51,10 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
         ))}
       </div>
       <div className="relative flex-1 min-h-[300px] md:min-h-[400px] border border-solid border-zinc-100 overflow-hidden">
-        <div className="absolute top-3 right-3 size-8 bg-white z-10 flex items-center justify-center shadow-md cursor-pointer">
+        <div
+          onClick={() => setIsZoomed(true)}
+          className="absolute top-3 right-3 size-8 bg-white z-10 flex items-center justify-center shadow-md cursor-pointer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22"
@@ -82,12 +93,14 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
             <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
           </svg>
         </div>
-        <img
-          loading="lazy"
-          src={mainImage.src}
-          alt={mainImage.alt}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
+          <img
+            loading="lazy"
+            src={mainImage.src}
+            alt={mainImage.alt}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </ControlledZoom>
       </div>
     </div>
   );

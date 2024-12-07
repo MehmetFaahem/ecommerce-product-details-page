@@ -1,6 +1,6 @@
 import * as React from "react";
 import { LanguageProps } from "../../types/HeaderTypes";
-import arrowDownWhite from "../../assets/arrow-down-white.png";
+import arrowDown from "../../assets/arrow-down.png";
 export const LanguageSelector: React.FC<LanguageProps> = ({
   code,
   flag,
@@ -25,7 +25,7 @@ export const LanguageSelector: React.FC<LanguageProps> = ({
       <span className="self-stretch my-auto">{code}</span>
       <img
         loading="lazy"
-        src={arrowDownWhite}
+        src={arrowDown}
         className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
         alt=""
       />

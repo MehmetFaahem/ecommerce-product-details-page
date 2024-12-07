@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CurrencyProps } from "../../types/HeaderTypes";
-
+import arrowDownWhite from "../../assets/arrow-down-white.png";
 export const CurrencySelector: React.FC<CurrencyProps> = ({
   code,
   onSelect,
@@ -18,7 +18,7 @@ export const CurrencySelector: React.FC<CurrencyProps> = ({
       <span className="self-stretch my-auto">{code}</span>
       <img
         loading="lazy"
-        src="/src/assets/arrow-down.png"
+        src={arrowDownWhite}
         className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
         alt=""
       />

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CartItemProps } from "../../types/HeaderTypes";
-
+import cartIcon from "../../assets/tabler-icon-shopping-cart.png";
 export const CartWidget: React.FC<CartItemProps> = ({
   count,
   total,
@@ -13,7 +13,7 @@ export const CartWidget: React.FC<CartItemProps> = ({
   >
     <img
       loading="lazy"
-      src="/src/assets/tabler-icon-shopping-cart.png"
+      src={cartIcon}
       className="object-contain shrink-0 self-stretch my-auto aspect-square w-[26px]"
       alt=""
     />

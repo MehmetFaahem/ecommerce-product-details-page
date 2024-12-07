@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BreadcrumbItemProps } from "../../types/HeaderTypes";
-
+import arrowRight from "../../assets/arrow-right.png";
 export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   text,
   isActive,
@@ -19,7 +19,7 @@ export const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
     {!isLast && (
       <img
         loading="lazy"
-        src="/src/assets/arrow-right.png"
+        src={arrowRight}
         className="object-contain shrink-0 self-stretch my-auto w-4 aspect-[0.94]"
         alt=""
       />

@@ -1,5 +1,11 @@
 import React from "react";
 import { ProductDetails } from "../../types/ProductDetailsType";
+import minusIcon from "../../assets/minus.png";
+import plusIcon from "../../assets/plus.png";
+import cartIcon from "../../assets/cart.png";
+import cartTwoIcon from "../../assets/cart-two.png";
+import lockIcon from "../../assets/lock.png";
+import paymentMethodsIcon from "../../assets/payment-methods.png";
 
 interface ProductCheckoutProps {
   product: ProductDetails;
@@ -68,7 +74,7 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
             </label>
             <div className="flex gap-2 items-center justify-center border border-neutral-200 rounded px-2">
               <img
-                src="/src/assets/minus.png"
+                src={minusIcon}
                 alt=""
                 className="size-4 cursor-pointer"
                 onClick={() => onQuantityChange(quantity - 1)}
@@ -83,7 +89,7 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
                 className="w-20 px-3 py-2 border-neutral-200 rounded text-center focus:outline-none"
               />
               <img
-                src="/src/assets/plus.png"
+                src={plusIcon}
                 alt=""
                 className="size-4 cursor-pointer"
                 onClick={() => onQuantityChange(quantity + 1)}
@@ -95,11 +101,7 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
             className="w-full px-16 py-3 mt-4 text-center cursor-pointer bg-lime-300 rounded font-medium flex items-center justify-center gap-1.5"
             disabled={!selectedSize || !selectedColor}
           >
-            <img
-              src="/src/assets/cart-two.png"
-              alt=""
-              className="w-[18px] h-[18px]"
-            />
+            <img src={cartTwoIcon} alt="" className="w-[18px] h-[18px]" />
             Buy Now
           </button>
 
@@ -107,20 +109,12 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
             className="w-full px-16 py-3 mt-2 text-center cursor-pointer text-white bg-stone-950 rounded font-medium flex items-center justify-center gap-1.5"
             disabled={!selectedSize || !selectedColor}
           >
-            <img
-              src="/src/assets/cart.png"
-              alt=""
-              className="w-[18px] h-[18px]"
-            />
+            <img src={cartIcon} alt="" className="w-[18px] h-[18px]" />
             Add to Cart
           </button>
 
           <div className="flex gap-1.5 justify-center items-center mt-4 text-sm text-neutral-500">
-            <img
-              src="/src/assets/lock.png"
-              alt=""
-              className="w-[15px] h-[20px]"
-            />
+            <img src={lockIcon} alt="" className="w-[15px] h-[20px]" />
             Secured Payment Guaranteed
           </div>
 
@@ -134,7 +128,7 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
               />
             ))} */}
             <img
-              src="/src/assets/payment-methods.png"
+              src={paymentMethodsIcon}
               alt=""
               className="h-6 object-contain"
             />

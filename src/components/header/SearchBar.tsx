@@ -1,5 +1,7 @@
 import * as React from "react";
 import { SearchBarProps } from "../../types/HeaderTypes";
+import arrowDownWhite from "../../assets/arrow-down-white.png";
+import searchIcon from "../../assets/search.png";
 
 export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -29,7 +31,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                 </span>
                 <img
                   loading="lazy"
-                  src="/src/assets/arrow-down-white.png"
+                  src={arrowDownWhite}
                   className="object-contain shrink-0 self-stretch my-auto w-3 aspect-square"
                   alt=""
                 />
@@ -66,7 +68,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         >
           <img
             loading="lazy"
-            src="/src/assets/search.png"
+            src={searchIcon}
             className="object-contain shrink-0 my-auto aspect-square w-[22px]"
             alt=""
           />

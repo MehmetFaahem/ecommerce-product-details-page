@@ -6,6 +6,11 @@ import {
 } from "../../types/ProductDetailsType";
 import { SaleCountdown } from "./SaleCountdown";
 import { WishlistActions } from "./WishlistActions";
+import facebookIcon from "../../assets/facebook.png";
+import xIcon from "../../assets/x.png";
+import instagramIcon from "../../assets/instagram.png";
+import whatsappIcon from "../../assets/whatsapp.png";
+import tiktokIcon from "../../assets/tiktok.png";
 
 interface ProductInfoProps {
   product: ProductDetails;
@@ -133,27 +138,27 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
           {[
             {
               platform: "Facebook",
-              icon: "/src/assets/facebook.png",
+              icon: facebookIcon,
               url: "https://facebook.com/share?product_id=1",
             },
             {
               platform: "Twitter",
-              icon: "/src/assets/x.png",
+              icon: xIcon,
               url: "https://twitter.com/share?product_id=1",
             },
             {
               platform: "Instagram",
-              icon: "/src/assets/instagram.png",
+              icon: instagramIcon,
               url: "https://instagram.com/share?product_id=1",
             },
             {
               platform: "WhatsApp",
-              icon: "/src/assets/whatsapp.png",
+              icon: whatsappIcon,
               url: "https://whatsapp.com/share?product_id=1",
             },
             {
               platform: "TikTok",
-              icon: "/src/assets/tiktok.png",
+              icon: tiktokIcon,
               url: "https://tiktok.com/share?product_id=1",
             },
           ].map((social) => (

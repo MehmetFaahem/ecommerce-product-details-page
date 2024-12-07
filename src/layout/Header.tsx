@@ -6,6 +6,9 @@ import { CartWidget } from "../components/header/CartWidget";
 import { SearchBar } from "../components/header/SearchBar";
 import { BreadcrumbItem } from "../components/header/Breadcrumb";
 import { HeaderProps } from "../types/HeaderTypes";
+import usFlag from "../assets/us-flag.png";
+import logo from "../assets/logo.png";
+import userIcon from "../assets/tabler-icon-user.png";
 
 export const Header: React.FC<HeaderProps> = ({
   onLanguageChange,
@@ -47,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex gap-4 items-center">
             <LanguageSelector
               code={currentLanguage}
-              flag="/src/assets/us-flag.png"
+              flag={usFlag}
               onSelect={onLanguageChange}
             />
             <div className="shrink-0 self-stretch my-auto w-0 border border-solid border-neutral-200 h-[18px]" />
@@ -74,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <img
               loading="lazy"
-              src="/src/assets/logo.png"
+              src={logo}
               className="object-contain shrink-0 self-stretch my-auto w-12 aspect-square"
               alt="Molymart logo"
             />
@@ -97,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <img
                 loading="lazy"
-                src="/src/assets/tabler-icon-user.png"
+                src={userIcon}
                 className="object-contain shrink-0 self-stretch my-auto aspect-square w-[26px]"
                 alt=""
               />

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavLinkProps } from "../../types/HeaderTypes";
-
+import arrowDownWhite from "../../assets/arrow-down-white.png";
 export const NavLink: React.FC<NavLinkProps> = ({
   text,
   hasDropdown,
@@ -15,7 +15,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
     {hasDropdown && (
       <img
         loading="lazy"
-        src="/src/assets/arrow-down.png"
+        src={arrowDownWhite}
         className="object-contain shrink-0 self-stretch my-auto w-4 translate-x-1 aspect-square"
         alt=""
       />

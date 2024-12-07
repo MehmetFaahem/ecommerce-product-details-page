@@ -16,6 +16,9 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
   const isLastImage = images[images.length - 1].id === selectedImage;
   const isFirstImage = images[0].id === selectedImage;
 
+  const nextImage = images[images.indexOf(mainImage) + 1];
+  const previousImage = images[images.indexOf(mainImage) - 1];
+
   return (
     <div className="flex flex-col md:flex-row gap-4 md:gap-2.5 w-full md:w-[536px] min-w-[240px]">
       <div className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-y-auto md:w-[88px] py-2 md:py-0">
@@ -52,7 +55,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
           </svg>
         </div>
         <div
-          onClick={() => onImageSelect(images[images.length - 1].id)}
+          onClick={() => onImageSelect(nextImage.id)}
           className="absolute top-[50%] right-[8px] z-10 bg-white flex items-center justify-center size-8 shadow-xl cursor-pointer"
         >
           <svg
@@ -66,7 +69,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
           </svg>
         </div>
         <div
-          onClick={() => onImageSelect(images[0].id)}
+          onClick={() => onImageSelect(previousImage.id)}
           className="absolute top-[50%] left-[8px] z-10 bg-white flex items-center justify-center size-8 shadow-xl cursor-pointer"
         >
           <svg

@@ -1,76 +1,65 @@
-import * as React from "react";
+import React from "react";
 import { ProductSection } from "./ProductSection";
-import { ProductCardProps } from "../../types/ProductDetailsType";
-
-const relatedProducts: ProductCardProps[] = [
-  {
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/5d560fdbc1abbbdeda1dcc78973b9f95846c048285c7b58e5f1e5b7f2022fc93?placeholderIfAbsent=true&apiKey=b01c7e4bd84f4d2cb00889f4e5559d20",
-    badge: { text: "New Arrival", color: "bg-lime-300" },
-    price: { current: 99.99, original: 200.0, discount: 25 },
-    title: "Cool sweater from the greens of new Iceland Cotton",
-    reviews: { count: 34, rating: 5 },
-    soldCount: 241,
-  },
-  {
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/5d560fdbc1abbbdeda1dcc78973b9f95846c048285c7b58e5f1e5b7f2022fc93?placeholderIfAbsent=true&apiKey=b01c7e4bd84f4d2cb00889f4e5559d20",
-    badge: { text: "New Arrival", color: "bg-lime-300" },
-    price: { current: 99.99, original: 200.0, discount: 25 },
-    title: "Cool sweater from the greens of new Iceland Cotton",
-    reviews: { count: 34, rating: 5 },
-    soldCount: 241,
-  },
-  {
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/5d560fdbc1abbbdeda1dcc78973b9f95846c048285c7b58e5f1e5b7f2022fc93?placeholderIfAbsent=true&apiKey=b01c7e4bd84f4d2cb00889f4e5559d20",
-    badge: { text: "New Arrival", color: "bg-lime-300" },
-    price: { current: 99.99, original: 200.0, discount: 25 },
-    title: "Cool sweater from the greens of new Iceland Cotton",
-    reviews: { count: 34, rating: 5 },
-    soldCount: 241,
-  },
-];
-
-const alsoBoughtProducts: ProductCardProps[] = [
-  {
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/5d560fdbc1abbbdeda1dcc78973b9f95846c048285c7b58e5f1e5b7f2022fc93?placeholderIfAbsent=true&apiKey=b01c7e4bd84f4d2cb00889f4e5559d20",
-    badge: { text: "Hot Sale", color: "bg-red-600 text-white" },
-    price: { current: 99.99, original: 200.0, discount: 25 },
-    title: "Cool sweater from the greens of new Iceland Cotton",
-    reviews: { count: 34, rating: 5 },
-    soldCount: 241,
-  },
-  {
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/5d560fdbc1abbbdeda1dcc78973b9f95846c048285c7b58e5f1e5b7f2022fc93?placeholderIfAbsent=true&apiKey=b01c7e4bd84f4d2cb00889f4e5559d20",
-    badge: { text: "Hot Sale", color: "bg-red-600 text-white" },
-    price: { current: 99.99, original: 200.0, discount: 25 },
-    title: "Cool sweater from the greens of new Iceland Cotton",
-    reviews: { count: 34, rating: 5 },
-    soldCount: 241,
-  },
-  {
-    image:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/5d560fdbc1abbbdeda1dcc78973b9f95846c048285c7b58e5f1e5b7f2022fc93?placeholderIfAbsent=true&apiKey=b01c7e4bd84f4d2cb00889f4e5559d20",
-    badge: { text: "Hot Sale", color: "bg-red-600 text-white" },
-    price: { current: 99.99, original: 200.0, discount: 25 },
-    title: "Cool sweater from the greens of new Iceland Cotton",
-    reviews: { count: 34, rating: 5 },
-    soldCount: 241,
-  },
-];
+import {
+  ProductCardProps,
+  ProductDetails,
+} from "../../types/ProductDetailsType";
+import { useProducts } from "../../utils/useProducts";
 
 export const ProductDisplay: React.FC = () => {
-  return (
-    <div className="flex flex-col max-w-[1350px] mx-auto gap-10 mt-10 max-md:px-5">
-      <ProductSection title="Related Products" products={relatedProducts} />
+  const { products, loading } = useProducts();
 
-      <ProductSection
-        title="People Also Bought"
-        products={alsoBoughtProducts}
-      />
+  if (loading || !products) {
+    return null;
+  }
+
+  // Transform products into ProductCardProps format
+  const transformProductToCard = (
+    product: ProductDetails
+  ): ProductCardProps => ({
+    image: product.main_image.src,
+    badge: {
+      text: product.categories.includes("Flash Sales")
+        ? "Flash Sale"
+        : "New Arrival",
+      color: product.categories.includes("Flash Sales")
+        ? "bg-red-600 text-white"
+        : "bg-green-600 text-white",
+    },
+    price: {
+      current: product.pricing.currentPrice,
+      original: product.pricing.originalPrice,
+      discount: product.pricing.discount,
+    },
+    title: product.name,
+    reviews: {
+      count: product.reviews.totalReviews,
+      rating: product.reviews.rating,
+    },
+    soldCount: product.reviews.totalSold,
+  });
+
+  // Get random products for each section
+  const getRandomProducts = (count: number, excludeId?: number) => {
+    const availableProducts = excludeId
+      ? products.filter((p) => p.id !== excludeId)
+      : products;
+
+    return availableProducts
+      .sort(() => Math.random() - 0.5)
+      .slice(0, count)
+      .map(transformProductToCard);
+  };
+
+  const similarProducts = getRandomProducts(3);
+  const recentlyViewed = getRandomProducts(3);
+
+  return (
+    <div className="flex flex-col px-16 py-12 w-full bg-white max-md:px-5">
+      <div className="flex flex-col mx-auto w-full max-w-[1350px] gap-8">
+        <ProductSection title="Related Products" products={similarProducts} />
+        <ProductSection title="People Also Bought" products={recentlyViewed} />
+      </div>
     </div>
   );
 };

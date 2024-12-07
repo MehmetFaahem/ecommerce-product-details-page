@@ -45,7 +45,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           selectedSize={selectedSize}
           selectedColor={selectedColor}
         />
-        <ProductBrief />
+        <ProductBrief product={product} />
       </div>
 
       <ProductDisplay />

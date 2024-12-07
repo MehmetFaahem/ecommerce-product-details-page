@@ -4,10 +4,16 @@ export interface ProductImage {
   id: string;
 }
 
+export interface DetailedReview {
+  rating: number;
+  text: string;
+}
+
 export interface ReviewStats {
   rating: number;
   totalReviews: number;
   totalSold: number;
+  detailedReviews: DetailedReview[];
 }
 
 export interface ProductPrice {
@@ -44,12 +50,14 @@ export interface ProductColor {
 }
 
 export interface ProductDetails {
-  id: string;
+  id: number;
+  uuid: string;
   name: string;
   description: string;
   sku: string;
   categories: string[];
   images: ProductImage[];
+  main_image: ProductImage;
   mainImage: ProductImage;
   reviews: ReviewStats;
   pricing: ProductPrice;
@@ -66,8 +74,17 @@ export interface ProductDetails {
     };
     returnPeriod: number;
   };
-  socialShares: SocialShare[];
-  paymentMethods: PaymentMethod[];
+  outstanding_features: string[];
+  outstandingFeatures: string[];
+  washing_instructions: string[];
+  washingInstructions: string[];
+  specifications: string[];
+  shipping: {
+    estimatedDelivery: string;
+    returnPolicy: string;
+  };
+  created_at: string;
+  updated_at: string;
 }
 
 export interface ActionButtonProps {
@@ -93,14 +110,14 @@ export interface InstructionProps {
 
 export interface ProductCardProps {
   image: string;
-  badge?: {
+  badge: {
     text: string;
     color: string;
   };
   price: {
     current: number;
     original: number;
-    discount?: number;
+    discount: number;
   };
   title: string;
   reviews: {

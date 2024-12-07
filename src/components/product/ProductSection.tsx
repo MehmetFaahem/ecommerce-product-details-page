@@ -11,7 +11,7 @@ export const ProductSection: React.FC<ProductSectionProps> = ({
       <div className="flex flex-wrap gap-5 justify-between w-full text-2xl font-medium leading-snug text-stone-950 max-md:max-w-full">
         <div className="mb-5">{title}</div>
       </div>
-      <div className="flex gap-5 max-md:flex-col">
+      <div className="flex flex-wrap gap-5 max-md:flex-col">
         {products.map((product, index) => (
           <ProductCard key={index} {...product} />
         ))}

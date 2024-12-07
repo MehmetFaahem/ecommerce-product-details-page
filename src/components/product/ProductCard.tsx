@@ -10,7 +10,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   soldCount,
 }) => {
   return (
-    <div className="flex flex-col w-3/12 max-md:ml-0 max-md:w-full">
+    <div className="flex flex-col w-3/12 max-xl:w-[45%] max-md:ml-0 max-md:w-full">
       <div className="flex flex-col grow max-md:mt-6">
         <div className="flex flex-col w-full font-medium text-stone-950">
           <div className="flex flex-col w-full text-sm leading-tight">

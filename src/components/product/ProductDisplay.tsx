@@ -55,7 +55,7 @@ export const ProductDisplay: React.FC = () => {
   const recentlyViewed = getRandomProducts(3);
 
   return (
-    <div className="flex flex-col px-16 py-12 w-full bg-white max-md:px-5">
+    <div className="flex flex-col py-12 w-full bg-white max-xl:px-5">
       <div className="flex flex-col mx-auto w-full max-w-[1350px] gap-8">
         <ProductSection title="Related Products" products={similarProducts} />
         <ProductSection title="People Also Bought" products={recentlyViewed} />

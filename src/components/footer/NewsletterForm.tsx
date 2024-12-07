@@ -7,7 +7,7 @@ export const NewsletterForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center px-16 py-9 w-full leading-snug bg-lime-300 max-md:px-5 max-md:max-w-full">
+    <div className="flex flex-col justify-center items-center px-16 py-9 w-full leading-snug bg-[#CEE34C] max-md:px-5 max-md:max-w-full">
       <div className="flex flex-wrap gap-5 justify-between w-full max-w-[1350px] max-md:max-w-full">
         <div className="flex flex-col max-md:max-w-full">
           <div className="text-3xl font-semibold text-stone-950">

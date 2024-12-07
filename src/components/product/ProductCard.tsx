@@ -31,7 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           </div>
           <div className="flex items-center w-full text-sm leading-snug text-center">
-            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white border-t border-b border-l border-neutral-200 min-h-[44px] w-[50%]">
+            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white hover:bg-[#CEE34C] transition-colors border-t border-b border-l border-neutral-200 min-h-[44px] w-[50%]">
               <div className="flex gap-1.5 items-center">
                 <img
                   loading="lazy"
@@ -42,7 +42,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 <span className="self-stretch my-auto">Buy Now</span>
               </div>
             </button>
-            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white border border-solid border-neutral-200 min-h-[44px] w-[50%]">
+            <button className="flex flex-col justify-center items-center self-stretch px-5 py-3 my-auto bg-white hover:bg-[#CEE34C] transition-colors border border-solid border-neutral-200 min-h-[44px] w-[50%]">
               <div className="flex gap-1.5 items-center">
                 <img
                   loading="lazy"
@@ -91,7 +91,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               $ {price.current.toFixed(2)}
             </div>
             {price.discount && (
-              <div className="gap-2.5 self-stretch px-2 py-1 my-auto text-xs leading-tight bg-lime-300 rounded-[40px] text-stone-950">
+              <div className="gap-2.5 self-stretch px-2 py-1 my-auto text-xs leading-tight bg-[#CEE34C] rounded-[40px] text-stone-950">
                 {price.discount}% off
               </div>
             )}

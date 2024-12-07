@@ -70,7 +70,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
         <span className="text-lg text-neutral-500 line-through">
           {product.pricing.currency} {product.pricing.originalPrice.toFixed(2)}
         </span>
-        <span className="px-3 py-1.5 text-xs font-medium bg-lime-300 rounded-full">
+        <span className="px-3 py-1.5 text-xs font-medium bg-[#CEE34C] rounded-full">
           Save {product.pricing.discount}%
         </span>
       </div>
@@ -102,7 +102,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
               disabled={!size.available}
               className={`px-3 py-1.5 rounded ${
                 selectedSize === size.value
-                  ? "bg-lime-300"
+                  ? "bg-[#CEE34C]"
                   : size.available
                   ? "bg-white border border-neutral-200"
                   : "bg-zinc-100 text-zinc-400 cursor-not-allowed"

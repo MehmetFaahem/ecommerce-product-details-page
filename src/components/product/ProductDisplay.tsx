@@ -24,7 +24,7 @@ export const ProductDisplay: React.FC = () => {
         : "New Arrival",
       color: product.categories.includes("Flash Sales")
         ? "bg-red-600 text-white"
-        : "bg-green-600 text-white",
+        : "bg-[#CEE34C] text-black",
     },
     price: {
       current: product.pricing.currentPrice,

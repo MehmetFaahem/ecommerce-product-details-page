@@ -41,7 +41,7 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
           </span>
         </div>
 
-        <div className="px-2.5 py-1 mt-3 text-sm font-semibold text-green-700 bg-green-700 bg-opacity-10 rounded-sm border border-green-700 border-opacity-30">
+        <div className="px-2.5 py-1 mt-3 text-sm font-semibold text-green-700 bg-[#CEE34C] bg-opacity-10 rounded-sm border border-green-700 border-opacity-30">
           {product.stock.status === "IN_STOCK" ? "In Stock" : "Out of Stock"}
         </div>
 
@@ -98,7 +98,7 @@ export const ProductCheckout: React.FC<ProductCheckoutProps> = ({
           </div>
 
           <button
-            className="w-full px-16 py-3 mt-4 text-center cursor-pointer bg-lime-300 rounded font-medium flex items-center justify-center gap-1.5"
+            className="w-full px-16 py-3 mt-4 text-center cursor-pointer bg-[#CEE34C] rounded font-medium flex items-center justify-center gap-1.5"
             disabled={!selectedSize || !selectedColor}
           >
             <img src={cartTwoIcon} alt="" className="w-[18px] h-[18px]" />

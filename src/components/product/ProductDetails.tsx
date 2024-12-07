@@ -41,15 +41,17 @@ export const ProductBrief: React.FC<ProductBriefProps> = ({ product }) => {
         return (
           <div className="mt-5">
             {productTabContent.description.map((desc, index) => (
-              <p key={index} className="text-neutral-500">
+              <p key={index} className="text-black">
                 {desc}
               </p>
             ))}
             <div className="mt-4">
-              <h3 className="font-semibold mb-2">Outstanding Features:</h3>
+              <h3 className="font-semibold mb-2 text-lg">
+                Outstanding Features:
+              </h3>
               <ul className="">
                 {product.outstanding_features.map((feature, index) => (
-                  <li key={index} className="text-neutral-500 mb-1">
+                  <li key={index} className="text-black mb-1">
                     {feature}
                   </li>
                 ))}
@@ -73,10 +75,12 @@ export const ProductBrief: React.FC<ProductBriefProps> = ({ product }) => {
               </div>
             </div>
             <div className="mt-4">
-              <h3 className="font-semibold mb-2">Washing Instructions:</h3>
+              <h3 className="font-semibold mb-2 text-lg">
+                Washing Instructions:
+              </h3>
               <ul className="">
                 {product.washing_instructions.map((instruction, index) => (
-                  <li key={index} className="text-neutral-500 mb-1">
+                  <li key={index} className="text-black mb-1">
                     {instruction}
                   </li>
                 ))}
@@ -88,7 +92,7 @@ export const ProductBrief: React.FC<ProductBriefProps> = ({ product }) => {
         return (
           <div className="mt-5">
             {productTabContent.specifications.map((spec, index) => (
-              <p key={index} className="text-neutral-500 mb-2">
+              <p key={index} className="text-black mb-2">
                 {spec}
               </p>
             ))}
@@ -111,7 +115,7 @@ export const ProductBrief: React.FC<ProductBriefProps> = ({ product }) => {
                     </span>
                   ))}
                 </div>
-                <p className="text-neutral-500">{review.text}</p>
+                <p className="text-black">{review.text}</p>
               </div>
             ))}
           </div>
@@ -121,11 +125,11 @@ export const ProductBrief: React.FC<ProductBriefProps> = ({ product }) => {
           <div className="mt-5">
             {productTabContent.shipping.map((info, index) => (
               <div key={index}>
-                <p className="text-neutral-500 mb-2">
+                <p className="text-black mb-2">
                   <span className="font-semibold">Estimated Delivery: </span>
                   {info.estimatedDelivery}
                 </p>
-                <p className="text-neutral-500">
+                <p className="text-black">
                   <span className="font-semibold">Return Policy: </span>
                   {info.returnPolicy}
                 </p>
@@ -162,6 +166,7 @@ export const ProductBrief: React.FC<ProductBriefProps> = ({ product }) => {
           onClick={() => setActiveTab("shipping")}
         />
       </div>
+      <div className="w-full h-[1px] bg-neutral-200 mt-5" />
       {renderTabContent()}
     </div>
   );

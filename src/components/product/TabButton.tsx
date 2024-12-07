@@ -9,7 +9,7 @@ export const TabButton: React.FC<TabProps> = ({
   const baseClasses =
     "gap-2.5 self-stretch px-7 py-2 my-auto rounded-[40px] max-md:px-5";
   const activeClasses = isActive
-    ? "bg-lime-300 text-stone-950"
+    ? "bg-[#CEE34C] text-stone-950"
     : "bg-white border border-solid border-neutral-200";
 
   return (

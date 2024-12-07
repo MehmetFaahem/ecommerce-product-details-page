@@ -140,7 +140,7 @@ export const Header: React.FC<HeaderProps> = ({
                 Wishlist
               </a>
               <div className="flex flex-col justify-center self-stretch py-px my-auto text-sm leading-snug text-center text-white w-[22px]">
-                <div className="px-0.5 bg-red-600 rounded-full h-[22px] w-[22px]">
+                <div className="pt-px bg-red-600 rounded-full h-[22px] w-[22px] flex items-center justify-center">
                   3
                 </div>
               </div>
